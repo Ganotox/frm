@@ -1,0 +1,11 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<header>
+  <nav class="top-navigation">
+        <a href="{% url 'home' %}" class="logo-link">
+            <img src="{% static 'img/logo.svg' %}" alt="Logo" class="logo">
+            <span class="site-name">GanoForum</span>
+        </a>
+        <button class="login-button">Войти</button>
+    </nav>
+</header>

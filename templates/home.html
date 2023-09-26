@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <title>Gano Forum</title>
+    <link rel="shortcut icon" href="{% static 'img/logo.svg' %}">
+</head>
+<body>
+{% include 'header.html' %}
+    <div class="overlay"></div>
+    <div class="login-modal">
+        <button class="close-button">X</button>
+        <button class="auth-button">Авторизоваться</button>
+        <button class="register-button">Зарегистрироваться</button>
+    </div>
+    <div class="error-popup">Проверьте вводимые данные или восстановите пароль</div>
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>

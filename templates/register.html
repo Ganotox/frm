@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    <title>Регистрация</title>
+    <link rel="shortcut icon" href="{% static 'img/logo.svg' %}">
+</head>
+<body>
+{% include 'register_header.html' %}
+    <div class="container">
+        <h2>Регистрация</h2>
+        <form method="post" onsubmit="return validatePassword()">
+            {% csrf_token %}
+            <div class="centered-form">
+                <label for="username">Введите желаемый логин:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">Введите Вашу почту:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password1">Введите желаемый пароль:</label>
+                <input type="password" id="password1" name="password1" required>
+                <span id="passwordStrength" style="color: #FF0000;"></span>
+                <span id="passwordLengthWarning" style="color: #FF0000; display: none;">
+                    Пароль должен содержать не менее 8 символов, большую букву, цифру и специальный символ.
+                </span>
+
+                <label for="password2">Повторите пароль:</label>
+                <input type="password" id="password2" name="password2" required>
+            </div>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <div id="passwordMismatch" class="error-message" style="display: none;">
+            Пароли не совпадают. Пожалуйста, введите пароль ещё раз.
+        </div>
+    </div>
+    <script src="{% static 'js/register.js' %}"></script>
+</body>
+</html>
